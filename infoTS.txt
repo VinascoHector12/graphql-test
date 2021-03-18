@@ -1,0 +1,10 @@
+Para crear el proyecto con ts:
+	- npx create-react-app app-name --template typescript
+
+Para el error de "could not find a declaration file for module react":
+	All you have to do is edit your TypeScript Config file (tsconfig.json) and add a new key value pair as:
+
+	"noImplicitAny": false
+
+eslint
+prettier

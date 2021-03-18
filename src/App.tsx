@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Header from './components/header/Header';
+import imagen from './assets/img/logo1.jpg';
+import Banner from './components/banner/Banner';
+import {Modal} from './components/modal/Modal'
+
+
 
 function App() {
+
+  const [isModalOpen, setModalState] = useState(false);
+  const toggleModal = () => setModalState(!isModalOpen);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header pic={imagen}></Header>
+      <Banner></Banner>
+      
     </div>
   );
 }
 
 export default App;
+
+
