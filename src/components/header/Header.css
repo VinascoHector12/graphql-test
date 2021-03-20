@@ -57,13 +57,17 @@ header ul li a:hover {
     color: rgb(255, 152, 0);
 }
 
-header ul li:last-child a{
+header ul li:last-child button{
     border: 1px solid orange;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    outline: none;
 }
 
-header ul li:last-child a:hover{
+header ul li:last-child button:hover{
     color: #fff;
     background: rgb(255, 152, 0);
 }

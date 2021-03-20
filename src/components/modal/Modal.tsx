@@ -1,25 +1,36 @@
 import React from 'react';
-import closeIcon from '../../assets/img/x.png'
+import {createPortal} from 'react-dom';
+import styled from 'styled-components';
 
-interface ModalProps {
-    title: string;
-    isOpen: boolean;
-    onClose: () => void;
+const Wrapper = styled.div`
+    z-index: 1000000;
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    padding-top: 25px;
+    //align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 50vh;
+    background: rgb(36, 40, 47);
+    color: #fff;
+`;
+
+type Props = {
+    modalOpen: boolean;
 }
 
-export const Modal : React.FC<ModalProps> = ({title, isOpen, onClose, children}) => {
-    <div className={'modal'}>
-        <div className={'modal_overlay'} />
-        <div className={'modal_box'}>
-            <div className={'modal_close-btn'}>
-                <img src={closeIcon} alt={'close modal'}/>
-            </div>
-            <div className={'modal_title'}>
-                {title}
-            </div>
-            <div className={'modal_content'}>
-                {children}
-            </div>
-        </div>
-    </div>
+const Modal: React.FC<Props> = ({modalOpen, children}) => {
+    if(!modalOpen) return null;
+
+    return createPortal(
+        <Wrapper>
+            <div>{children}</div>
+        </Wrapper>,
+        document.body
+        /*document.getElementById("portal")*/
+    );
 };
+
+export default Modal;
