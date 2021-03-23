@@ -16,7 +16,11 @@ const [modalOpen, setModalOpen] = useState(false);
                 <ul className="header_list">
                     <li className="header_link"><a href="/">Docs</a></li>
                     <li className="header_link"><a href="/">About</a></li>
-                    <li className="header_link_list"><button onClick={()=>setModalOpen(true)}>Characters</button></li>
+                    <li className="header_link_list">
+                        <button onClick={()=>setModalOpen(true)}>
+                            Characters
+                        </button>
+                    </li>
                 </ul>
                 <Modal modalOpen={modalOpen}>
                     <ModalComponent setModalOpen={setModalOpen} />

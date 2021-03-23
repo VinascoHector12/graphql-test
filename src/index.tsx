@@ -40,6 +40,26 @@ const GET_CHARACTERS = gql`{
   }
 }`;
 
+/*
+    {
+  characters(page: 1){
+    info{
+      next
+      prev
+      pages
+    }
+    results{
+      id
+      species
+      name
+      status
+      image
+      
+    }
+  }
+}
+*/
+
 
 const CharactersQuery = () =>{
   const { loading, error, data } = useQuery(GET_CHARACTERS);
@@ -49,10 +69,10 @@ const CharactersQuery = () =>{
   return data.characters.results.map(character => {
     
     return (
-      <div className="cards">
+      <div key={character.id} className="cards">
         <img src={character.image} alt=""/>
         <div className="cardInfo">
-          <h2 key={character.id}>{character.name}</h2>
+          <h2>{character.name}</h2>
           <span className="status">
             <span className={characterStatusIcon(character.status)}></span>
             <p>{character.status} - {character.species}</p>  
@@ -69,14 +89,12 @@ const CharactersQuery = () =>{
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <React.StrictMode>
       <>
       <App />
       <div className="contentCard">
         <CharactersQuery />
       </div>
       </>
-    </React.StrictMode>
   </ApolloProvider>,
   document.getElementById('root')
 );

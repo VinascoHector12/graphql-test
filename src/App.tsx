@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import Header from './components/header/Header';
 import imagen from './assets/img/logo1.jpg';
