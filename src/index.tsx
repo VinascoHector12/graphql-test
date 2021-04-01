@@ -21,7 +21,6 @@ const characterStatusIcon = (statusIcon) =>{
   }else{
     return "status_icon3";
   }
-  //return (statusIcon === "Alive" ? "status_icon1" : "status_icon2");
 }
 
 const GET_CHARACTERS = gql`{
@@ -47,8 +46,7 @@ const CharactersQuery = () =>{
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :</p>;
 
-  return data.characters.results.map(character => {
-    
+  return data.characters.results.map(character => {    
     return (
       <a key={character.id} href={`https://rickandmortyapi.com/api/character/${character.id}`} className="aCards">
         <div className="cards">

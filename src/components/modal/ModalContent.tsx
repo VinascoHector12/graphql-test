@@ -59,7 +59,7 @@ const CharacterList = () =>{
     const[filterName, setFilterName] = useState("");
 
     const { loading, error, data } = useQuery(GET_CHARACTERS(currentPage, filterName));
-    if (loading) return <p>Loading...</p>;
+    if (loading) return null;
     if (error) return <p>Error :</p>;
     
     const nextPageInfo = data.characters.info.next;
@@ -130,6 +130,7 @@ const ModalComponent: React.FC<Props> = ({setModalOpen}:Props) => {//En serio po
 
                 <div className="btnPages">
                     <button onClick={backPage}>Back</button>
+                    <p>Pagina actual: {currentPage}</p>
                     <button onClick={nextPage}>Next</button>
                 </div>            
 

@@ -44,7 +44,7 @@ button{
 
 .btnPages{
     display: flex;
-    padding: 0 20px 0 20px;
+    padding: 0 110px 0 110px;
     justify-content: space-around;
     margin-bottom: 10px;
 }

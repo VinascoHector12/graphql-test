@@ -85,3 +85,7 @@ code {
 .aCards{
   text-decoration: none;
 }
+
+.aCards .cards .cardInfo h2:hover{
+  color: rgb(255, 152, 0);
+}
