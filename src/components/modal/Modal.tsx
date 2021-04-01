@@ -11,8 +11,8 @@ const Wrapper = styled.div`
     padding-top: 25px;
     //align-items: center;
     justify-content: center;
-    width: 40vw;
-    height: 63vh;
+    width: 45vw;
+    height: 63.5vh;
     background: rgb(36, 40, 47);
     color: rgb(255, 152, 0);
     flex-wrap: wrap;

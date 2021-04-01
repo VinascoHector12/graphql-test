@@ -73,3 +73,15 @@ code {
   background: rgb(214, 61, 46);
   border-radius: 50%;
 }
+
+.cards .cardInfo .status_icon3{
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 0.375rem;
+  background: rgb(36, 40, 47);
+  border-radius: 50%;
+}
+
+.aCards{
+  text-decoration: none;
+}

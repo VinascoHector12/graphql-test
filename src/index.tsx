@@ -14,12 +14,14 @@ const client = new ApolloClient({
 })
 
 const characterStatusIcon = (statusIcon) =>{
-  /*if (statusIcon === "Alive"){
+  if (statusIcon === "Alive"){
     return "status_icon1";
-  }else{
+  }else if (statusIcon === "Dead"){
     return "status_icon2";
-  }*/
-  return (statusIcon === "Alive" ? "status_icon1" : "status_icon2");
+  }else{
+    return "status_icon3";
+  }
+  //return (statusIcon === "Alive" ? "status_icon1" : "status_icon2");
 }
 
 const GET_CHARACTERS = gql`{
@@ -40,27 +42,6 @@ const GET_CHARACTERS = gql`{
   }
 }`;
 
-/*
-    {
-  characters(page: 1){
-    info{
-      next
-      prev
-      pages
-    }
-    results{
-      id
-      species
-      name
-      status
-      image
-      
-    }
-  }
-}
-*/
-
-
 const CharactersQuery = () =>{
   const { loading, error, data } = useQuery(GET_CHARACTERS);
   if (loading) return <p>Loading...</p>;
@@ -69,20 +50,22 @@ const CharactersQuery = () =>{
   return data.characters.results.map(character => {
     
     return (
-      <div key={character.id} className="cards">
-        <img src={character.image} alt=""/>
-        <div className="cardInfo">
-          <h2>{character.name}</h2>
-          <span className="status">
-            <span className={characterStatusIcon(character.status)}></span>
-            <p>{character.status} - {character.species}</p>  
-          </span>
-          <p className="subTitle">Last known location:</p>
-          <p>{character.location.name}</p>
-          <p className="subTitle">First seen in:</p>
-          <p>{character.origin.name}</p>
-        </div>                
-      </div>)
+      <a key={character.id} href={`https://rickandmortyapi.com/api/character/${character.id}`} className="aCards">
+        <div className="cards">
+          <img src={character.image} alt=""/>
+          <div className="cardInfo">
+            <h2>{character.name}</h2>
+            <span className="status">
+              <span className={characterStatusIcon(character.status)}></span>
+              <p>{character.status} - {character.species}</p>  
+            </span>
+            <p className="subTitle">Last known location:</p>
+            <p>{character.location.name}</p>
+            <p className="subTitle">First seen in:</p>
+            <p>{character.origin.name}</p>
+          </div>                
+        </div>
+      </a>)
   });
 };
 
